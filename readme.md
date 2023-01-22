@@ -32,6 +32,6 @@ Assuming the data is prepared at the directory of `!!!!!MYDATA!!!!!` (replace th
 
 ### Speed Testing
 
-For testing with different batch sizes (`$BSIZE`), testing the speed with (here, `test_certain_batches` specifies how many batches to run for speed testing with repeated sampling, deleting this option will make it ordinary testing):
+For testing with different batch sizes (`$BSIZE`), testing the speed with (here, `test_certain_batches` specifies how many batches to run for speed testing with repeated sampling, deleting this option will make it ordinary testing; using `test_certain_batches` will lead to a final eval error which does not matter, read the `Test-Info:` line for time information!):
 
-    python3 -m zgen.main.test _conf nn.dist_world_size:1 fp16:$FP16 model_load_name:zmodel.bestn.m test0.input_dir:${MYDATA} test1.input_paths: test0.input_paths:wmt14en2de.test vocab_load_dir:${MYDATA}/voc_wmt14en2de/ test0.batch_size:$BSIZE test_certain_batches:100
+    python3 -m zgen.main.test _confR nn.dist_world_size:1 fp16:1 model_load_name:zmodel.bestn.m test0.input_dir:${MYDATA} test1.input_paths: test0.input_paths:wmt14en2de.test vocab_load_dir:${MYDATA}/voc_wmt14en2de/ test0.batch_size:$BSIZE test_certain_batches:100
